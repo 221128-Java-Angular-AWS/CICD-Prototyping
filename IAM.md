@@ -1,4 +1,5 @@
 ## Devops IAM policy
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -29,9 +30,11 @@
         }
     ]
 }
+```
   
   
 ## Trust relationships:
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -44,3 +47,4 @@
         }
     ]
 }
+```
