@@ -33,6 +33,11 @@ ec2-3-133-147-18.us-east-2.compute.amazonaws.com
  - Need jenkins account to be sudoer on EC2
  - Could use a dynamic DNS, maybe free no-ip? Backend location is likely to change, especially if multiple teams are using it. Restarts generate new public address.
 Need
+ - Need to install docker, docker commands must be run as a sudoer
+   - sudo yum install docker
+ - I think we also need to install git in addition to the git jenkins addon
+   - sudo yum install git
+   
 
 
 
