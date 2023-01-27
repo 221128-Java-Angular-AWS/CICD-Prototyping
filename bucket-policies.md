@@ -1,4 +1,5 @@
 ## Bucket for hosting private files
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -18,6 +19,7 @@
         }
     ]
 }
+```
   
   
 ## SPA static hosting bucket
