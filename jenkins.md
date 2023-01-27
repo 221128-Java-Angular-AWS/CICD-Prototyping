@@ -36,3 +36,15 @@ sudo systemctl enable jenkins
 ```
 sudo systemctl enable jenkins
 ```
+
+
+
+The jenkins account needs to be a sudoer, so edit the sudoers file:
+```
+sudo visudo -f /etc/sudoers
+```
+
+And add the entry:
+```
+jenkins ALL=(ALL) NOPASSWD:ALL
+```
