@@ -1,5 +1,9 @@
 # CICD-Prototyping
-This is a repo for documentation and collaboration in establishing a prototype for future P3 CICD pipelines
+This is a repo for documentation and collaboration in establishing a prototype for future P3 CICD pipelines  
+Account: EC2-User
+Password: none
+You need the private key file to access.
+ec2-3-133-147-18.us-east-2.compute.amazonaws.com
 
 
 ## Design:
@@ -29,4 +33,6 @@ This is a repo for documentation and collaboration in establishing a prototype f
  - Need jenkins account to be sudoer on EC2
  - Could use a dynamic DNS, maybe free no-ip? Backend location is likely to change, especially if multiple teams are using it. Restarts generate new public address.
 Need
+
+
 
