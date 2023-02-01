@@ -5,6 +5,9 @@ https://ravivalecha30.medium.com/continuous-integration-and-deployment-of-angula
 installing node via nvm instead, according to:  
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html  
   
+skipped installing pm2. May need to come back to this?
+
+  
   
 ### install java jdk
 sudo yum install java-17-amazon-corretto-devel  
@@ -31,3 +34,12 @@ may need to perform these steps during build?
  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
  - . ~/.nvm/nvm.sh
  - nvm install 16
+
+checking locations:
+`which node`: /home/ec2-user/.nvm/versions/node/v16.19.0/bin/node  
+  
+`which npm`: /home/ec2-user/.nvm/versions/node/v16.19.0/bin/npm  
+symlink to: /home/ec2-user/.nvm/versions/node/v16.19.0/lib/node_modules/npm/bin/npm-cli.js  
+  
+node version: `node -e "console.log('Running Node.js ' + process.version)"  `
+ - Running Node.js v16.19.0
