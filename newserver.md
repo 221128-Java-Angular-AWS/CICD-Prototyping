@@ -1,31 +1,29 @@
 ## new server
-following the basics from here:
-https://ravivalecha30.medium.com/continuous-integration-and-deployment-of-angular-application-using-jenkins-on-aws-ec2-19de3e3c7f3b
+following the basics from here:  
+https://ravivalecha30.medium.com/continuous-integration-and-deployment-of-angular-application-using-jenkins-on-aws-ec2-19de3e3c7f3b  
 
-installing node via nvm instead, according to:
-https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
-
-
-
+installing node via nvm instead, according to:  
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html  
+  
+  
 ### install java jdk
-sudo yum install java-17-amazon-corretto-devel
+sudo yum install java-17-amazon-corretto-devel  
 
 ### install jenkins
-https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
+https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/  
 
 ### set the java home variable 
-May need to export this variable as well as PATH during the build, or maybe there are ENV options in jenkins config
-https://bhargavamin.com/how-to-do/setting-up-java-environment-variable-on-ec2/
-
+May need to export this variable as well as PATH during the build, or maybe there are ENV options in jenkins config  
+https://bhargavamin.com/how-to-do/setting-up-java-environment-variable-on-ec2/  
+  
 location:
-/usr/lib/jvm/java-17-amazon-corretto.x86_64/bin
-set java home in jenkins config
-
+/usr/lib/jvm/java-17-amazon-corretto.x86_64/bin  
+set java home in jenkins config  
+  
 ### Install git
-sudo yum install git
-set git location in jenkins config
-
-
+sudo yum install git  
+set git location in jenkins config  
+  
 ### installing node
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html  
 sudo yum install -y gcc-c++ make - is this necessary?  
