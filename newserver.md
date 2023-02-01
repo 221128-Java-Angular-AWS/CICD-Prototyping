@@ -43,3 +43,9 @@ symlink to: /home/ec2-user/.nvm/versions/node/v16.19.0/lib/node_modules/npm/bin/
   
 node version: `node -e "console.log('Running Node.js ' + process.version)"  `
  - Running Node.js v16.19.0
+  
+install node plugin in jenkins - Manage Jenkins > Jenkins Plugins > available > NodeJs Plugin  
+Configure Node JS installations - Manage Jenkins > Global Tool Configuration > NodeJs Installations  
+Guide at this point instructs us to install automatically, but didn;t we already install it? I went with install auto and selected the same node version 16.19.0
+
+
