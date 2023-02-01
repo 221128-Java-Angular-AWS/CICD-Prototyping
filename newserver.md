@@ -27,6 +27,12 @@ set java home in jenkins config
 sudo yum install git  
 set git location in jenkins config  
 
+### Install maven - installs v3.5.2
+https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth-connect-prerq.html  
+ - sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+ - sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+ - sudo yum install -y apache-maven
+
 ### Install docker - create boot service - fix groups so no sudo necessary  
 https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/  
 sudo yum install docker  
