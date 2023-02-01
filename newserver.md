@@ -26,6 +26,11 @@ set java home in jenkins config
 ### Install git
 sudo yum install git  
 set git location in jenkins config  
+
+### Install docker
+https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
+sudo yum install docker
+
   
 ### installing node
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html  
