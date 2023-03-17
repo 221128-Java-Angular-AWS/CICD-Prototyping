@@ -41,62 +41,62 @@ Need
  - I think we also need to install git in addition to the git jenkins addon
    - sudo yum install git
    
-[Install mvn] https://awswithatiq.com/how-to-install-apache-maven-on-amazon-linux-2/
-sudo yum update -y
-sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-sudo yum install -y apache-maven
+[Install mvn] https://awswithatiq.com/how-to-install-apache-maven-on-amazon-linux-2/  
+sudo yum update -y  
+sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo  
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo  
+sudo yum install -y apache-maven  
+  
+[Install angular and npm] https://www.geeksforgeeks.org/how-to-install-angularjs-on-linux/  
+sudo apt-get upgrade && sudo apt-get update -y  
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash  
+. ~/.nvm/nvm.sh  
+nvm install 16  
+node -e "console.log('Running Node.js ' + process.version)"  
+sudo apt install nodejs  
+sudo ln -s /usr/bin/nodejs /usr/bin/node  
+sudo apt install npm -y  
+sudo npm install -g @angular/cli  
+  
 
-[Install angular and npm] https://www.geeksforgeeks.org/how-to-install-angularjs-on-linux/
-sudo apt-get upgrade && sudo apt-get update -y
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 16
-node -e "console.log('Running Node.js ' + process.version)"
-sudo apt install nodejs
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-sudo apt install npm -y
-sudo npm install -g @angular/cli
+[If using v18]  
+npm use 16.x.x  
 
+Steps after launching EC2 with Amazon Linux image:  
+sudo nano /etc/sudoers  
+[append "jenkins ALL=(ALL) NOPASSWD: ALL" to the end of the text-file]  
+  
+sudo yum update  
+sudo yum install docker  
+sudo systemctl start docker  
+sudo docker pull username/img:tagname  
+sudo docker run -p {}:{} imgname  
+  
+[If getting compatability err, ex. arm64 incompatability issue]:  
+sudo docker run --privileged --rm tonistiigi/binfmt --install all  
+sudo docker run --platform linux/arm64 -p p1:p2 username/img:tagname  
+  
+[Install npm and maven]  
+  
+[To install jenkins on EC2 instance]:  
+sudo yum update -y  
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo  
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key  
+sudo yum upgrade  
+sudo amazon-linux-extras install java-openjdk11 -y  
+sudo yum install jenkins -y  
+sudo systemctl enable jenkins  
+sudo systemctl start jenkins  
+sudo systemctl status jenkins  
+  
+Head to {EC2 IPV4 address}:8080 on browser to sign up for Jenkins.  
+If unable to connect, add Custom security protocol for port 8080 on instance from any IP address (0.0.0.0/0)  
+  
+In configuring git settings in Jenkins, add repository name and use */deploy under branch specifier to trigger pipeline whenever a push is made to the deploy branch*  
+  
+On github, go to your repository: Settings: Webhooks: Add webhook  
+Get your url:port and append /github-webhook/  
 
-[If using v18]
-npm use 16.x.x
-
-Steps after launching EC2 with Amazon Linux image:
-sudo nano /etc/sudoers
-[append "jenkins ALL=(ALL) NOPASSWD: ALL" to the end of the text-file]
-
-sudo yum update
-sudo yum install docker
-sudo systemctl start docker
-sudo docker pull username/img:tagname
-sudo docker run -p {}:{} imgname
-
-[If getting compatability err, ex. arm64 incompatability issue]:
-sudo docker run --privileged --rm tonistiigi/binfmt --install all
-sudo docker run --platform linux/arm64 -p p1:p2 username/img:tagname
-
-[Install npm and maven]
-
-[To install jenkins on EC2 instance]:
-sudo yum update -y
-sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-sudo yum upgrade
-sudo amazon-linux-extras install java-openjdk11 -y
-sudo yum install jenkins -y
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
-sudo systemctl status jenkins
-
-Head to {EC2 IPV4 address}:8080 on browser to sign up for Jenkins.
-If unable to connect, add Custom security protocol for port 8080 on instance from any IP address (0.0.0.0/0)
-
-In configuring git settings in Jenkins, add repository name and use */deploy under branch specifier to trigger pipeline whenever a push is made to the deploy branch*
-
-On github, go to your repository: Settings: Webhooks: Add webhook
-Get your url:port and append /github-webhook/
-
-Issue resolution-
-If application was locally packaged on anything other than an AMD architecture (e.g. Arm64), to run app on EC2 Linux instance, use 'sudo docker run -it --rm --platform linux/arm64 imgName:tag'.
-If this throws an error, try ' docker run --privileged --rm tonistiigi/binfmt --install all' before containerizing your img.
+Issue resolution-  
+If application was locally packaged on anything other than an AMD architecture (e.g. Arm64), to run app on EC2 Linux instance, use 'sudo docker run -it --rm --platform linux/arm64 imgName:tag'.  
+If this throws an error, try ' docker run --privileged --rm tonistiigi/binfmt --install all' before containerizing your img.  
